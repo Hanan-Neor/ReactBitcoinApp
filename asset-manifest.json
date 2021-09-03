@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ReactBitcoinApp/static/css/main.fb6d2a50.chunk.css",
+    "main.js": "/ReactBitcoinApp/static/js/main.cd0cde30.chunk.js",
+    "main.js.map": "/ReactBitcoinApp/static/js/main.cd0cde30.chunk.js.map",
+    "runtime-main.js": "/ReactBitcoinApp/static/js/runtime-main.94b96971.js",
+    "runtime-main.js.map": "/ReactBitcoinApp/static/js/runtime-main.94b96971.js.map",
+    "static/js/2.670c443c.chunk.js": "/ReactBitcoinApp/static/js/2.670c443c.chunk.js",
+    "static/js/2.670c443c.chunk.js.map": "/ReactBitcoinApp/static/js/2.670c443c.chunk.js.map",
+    "static/js/3.660a0c99.chunk.js": "/ReactBitcoinApp/static/js/3.660a0c99.chunk.js",
+    "static/js/3.660a0c99.chunk.js.map": "/ReactBitcoinApp/static/js/3.660a0c99.chunk.js.map",
+    "index.html": "/ReactBitcoinApp/index.html",
+    "static/css/main.fb6d2a50.chunk.css.map": "/ReactBitcoinApp/static/css/main.fb6d2a50.chunk.css.map",
+    "static/js/2.670c443c.chunk.js.LICENSE.txt": "/ReactBitcoinApp/static/js/2.670c443c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.94b96971.js",
+    "static/js/2.670c443c.chunk.js",
+    "static/css/main.fb6d2a50.chunk.css",
+    "static/js/main.cd0cde30.chunk.js"
+  ]
+}
