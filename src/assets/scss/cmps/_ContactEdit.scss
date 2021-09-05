@@ -1,0 +1,13 @@
+.contact-edit{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    // & > input:last-child{
+    //     margin-bottom: 20px;
+    // }
+    & button{
+        margin-top: 20px;
+    }
+    
+}

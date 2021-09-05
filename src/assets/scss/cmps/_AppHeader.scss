@@ -1,0 +1,10 @@
+.app-header{
+    padding-inline: 5px;
+    & nav{
+        gap:10px;
+        .active-nav {
+            // color: red;
+            text-decoration: underline;
+          }
+    }
+}

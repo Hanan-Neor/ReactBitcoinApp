@@ -1,0 +1,19 @@
+.contact-details{
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color:rgb(227, 238, 253);
+
+    width: fit-content;
+    & .details{
+        padding: 20px 0;
+    }
+    & .buttons{
+        & a{
+            // display: inline-block;
+        }
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
