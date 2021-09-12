@@ -1,5 +1,4 @@
-import { storageService } from './storageService.js'
-import { makeId } from './utilService.js'
+import { storageService } from './async-storage-service.js';
 
 export const contactService = {
   query,
@@ -7,7 +6,6 @@ export const contactService = {
   remove,
   getById,
   getEmptyContact,
-  tryContact
 }
 
 const STORAGE_KEY = 'contacts'
@@ -132,56 +130,41 @@ const gDefaultContacts = [
 
 var gContacts = _loadContacts()
 
-function query(filterBy) {
-  let contactsToReturn = gContacts;
+async function query(filterBy) {
+  let contactsToReturn = await _loadContacts();
   if (filterBy) {
-    contactsToReturn = filter(filterBy)
-
+    contactsToReturn = filter(filterBy,contactsToReturn)
   }
-  return Promise.resolve([...contactsToReturn]);
+  return contactsToReturn;
 }
 
-function filter(term) {
+function filter(term,contacts) {
   term = term.toLocaleLowerCase()
-  return gContacts.filter(contact => {
+  return contacts.filter(contact => {
     return contact.name.toLocaleLowerCase().includes(term) ||
       contact.phone.toLocaleLowerCase().includes(term) ||
       contact.email.toLocaleLowerCase().includes(term)
   })
 }
 
-
-
-
-function tryContact(id) {
-  const contact = gContacts.find(contact => contact._id === id)
-  contact.batteryStatus -= 10
-  return Promise.resolve()
+async function getById(userId) {
+  const user = await storageService.get(STORAGE_KEY, userId);
+  console.log(user);
+  return user;
 }
-function getById(id) {
-  const contact = gContacts.find(contact => contact._id === id)
-  return Promise.resolve({ ...contact })
-}
+
 
 function remove(id) {
-  const idx = gContacts.findIndex(contact => contact._id === id)
-  gContacts.splice(idx, 1)
-  if (!gContacts.length) gContacts = gDefaultContacts.slice()
-  storageService.store(STORAGE_KEY, gContacts)
-  return Promise.resolve()
+  return storageService.remove(STORAGE_KEY, id)
 }
 
-function save(contactToSave) {
+async function save(contactToSave) {
   if (contactToSave._id) {
-    const idx = gContacts.findIndex(contact => contact._id === contactToSave._id)
-    gContacts.splice(idx, 1, contactToSave)
+    await storageService.put(STORAGE_KEY, contactToSave)
   } else {
-    contactToSave._id = makeId()
-    contactToSave.batteryStatus = 100
-    gContacts.push(contactToSave)
+    await storageService.post(STORAGE_KEY, contactToSave)
   }
-  storageService.store(STORAGE_KEY, gContacts)
-  return Promise.resolve(contactToSave);
+  return ;
 }
 
 function getEmptyContact() {
@@ -192,10 +175,12 @@ function getEmptyContact() {
   }
 }
 
-function _loadContacts() {
-  let contacts = storageService.load(STORAGE_KEY)
-  if (!contacts || !contacts.length) contacts = gDefaultContacts
-  storageService.store(STORAGE_KEY, contacts)
+async function _loadContacts() {
+  let contacts = await storageService.query(STORAGE_KEY)
+  if (!contacts || !contacts.length){
+    contacts = gDefaultContacts
+    storageService.postMany(STORAGE_KEY, contacts)
+  } 
   return contacts
 }
 

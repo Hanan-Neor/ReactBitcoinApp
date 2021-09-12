@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 // import contactService, {ContactService} from '../services/contactService' 
 import { contactService } from '../services/contactService2'
-import { deleteContact } from '../store/actions/contactActions'
+import { deleteContact,loadContacts } from '../store/actions/contactActions'
 
 
 
@@ -23,14 +23,10 @@ class _ContactDetailsPage extends Component {
         const contact = await contactService.getById(id)
         this.setState({ contact })
     }
-    // deleteContact = async (contactId) => {
+    
     deleteContact = async () => {
-        // console.log(contactId);
-        // await contactService.remove(this.state.contact._id)
-        this.props.deleteContact(this.state.contact._id)
-
-        // this.loadContact
-        this.props.history.push('/contact')
+         await this.props.deleteContact(this.state.contact._id)
+            this.props.history.push('/contact')
     }
 
     goBack = () =>{
@@ -70,7 +66,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    deleteContact
+    deleteContact,
+    loadContacts
     }
 
 export const ContactDetailsPage = connect(mapStateToProps,mapDispatchToProps)(_ContactDetailsPage)

@@ -6,12 +6,14 @@ import { ContactPage } from './ContactPage'
 import { HomePage } from './HomePage'
 import { StatisticPage } from './StatisticPage'
 import { ContactEditPage } from './ContactEditPage'
+import { connect } from 'react-redux'
+import {getLoggedinUser} from '../store/actions/userActions'
 // import { RobotList } from '../cmps/RobotList'
 // import { RobotDetails } from './RobotDetails'
 // import { robotService } from '../services/robotService'
 // import { RobotFilter } from '../cmps/RobotFilter'
 
-export class BitcoinApp extends Component {
+class _BitcoinApp extends Component {
   state = {
     robots: null,
     filterBy: null,
@@ -23,6 +25,8 @@ export class BitcoinApp extends Component {
   componentDidMount() {
     // console.log(this.props);
     // this.loadRobots()
+    this.props.getLoggedinUser()
+
   }
 
   selectContact = (contactId) => {
@@ -94,3 +98,18 @@ export class BitcoinApp extends Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return{
+      // user: state.userModule.loggedInUser
+  }
+}
+
+
+const mapDispatchToProps = {
+  getLoggedinUser
+}
+
+
+
+export const BitcoinApp = connect(mapStateToProps,mapDispatchToProps)(_BitcoinApp)
+// export const BitcoinApp = connect(mapDispatchToProps)(_BitcoinApp)

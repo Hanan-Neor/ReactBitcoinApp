@@ -16,7 +16,12 @@ class _ContactPage extends Component {
     componentDidMount(){
     // console.log(this.props);
         // this.loadContacts()
-        this.props.loadContacts()
+        this.props.setFilterBy('')
+        // if(!this.props.contacts){
+
+            this.props.loadContacts()
+        // }
+        console.log(this.props);
     }
 
     // async loadContacts(){
@@ -39,7 +44,7 @@ class _ContactPage extends Component {
     //   const  {contacts} = this.state
       const  {contacts} = this.props
       const {selectContact} = this.props
-      if(!contacts) return <div>hi</div>
+      if(!contacts) return <div>Loading Contacts...</div>
         return (
             <div className="contact-page">
                 <ContactFilter onChangeFilter={this.onChangeFilter} />
@@ -55,7 +60,8 @@ class _ContactPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        contacts: state.contacts
+        contacts: state.contactModule.contacts,
+        // filterBy: state.contactModule.filterBy
     }
 }
 const mapDispatchToProps = {

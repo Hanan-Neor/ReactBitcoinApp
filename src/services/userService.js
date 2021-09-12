@@ -1,6 +1,4 @@
-import { storageService } from './storageService.js'
-
-// import { storageService } from './async-storage.service';
+import { storageService } from './async-storage-service.js';
 // import { httpService } from './http.service';
 // import { socketService, SOCKET_EVENT_USER_UPDATED } from './socket.service';
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser';
@@ -23,15 +21,20 @@ window.userService = userService;
 // userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 100, isAdmin: true})
 // userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 100})
 
-
+userService.signup({
+  username: "Avi Berger",
+  coins: 100,
+  moves: [],
+})
 
 function getUsers() {
   // return storageService.query('user');
   // return httpService.get(`user`)
+
   return {
-    name:"Avi Berger",
-    coins:100,
-    moves:[],
+    username: "Avi Berger",
+    coins: 100,
+    moves: [],
   }
 }
 
@@ -58,7 +61,7 @@ async function login(userCred) {
   const users = await storageService.query('user'); //CLIENT STORAGE
   const user = users.find((user) => user.username === userCred.username); //CLIENT STORAGE
   return _saveLocalUser(user); //CLIENT STORAGE
-  
+
   // const user = await httpService.post('auth/login', userCred) //SERVER STORAGE
   // socketService.emit('login', user._id); //SERVER STORAGE
   // if (user) return _saveLocalUser(user); //SERVER STORAGE
@@ -73,7 +76,7 @@ async function signup(userCred) {
   return _saveLocalUser(user);
 }
 async function logout() {
-  sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER); 
+  sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
   // socketService.emit('unset-user-socket'); //SERVER STORAGE
   // return await httpService.post('auth/logout') //SERVER STORAGE
 }

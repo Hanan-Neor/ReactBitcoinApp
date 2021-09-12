@@ -13,7 +13,7 @@ export  class ContactFilter extends Component {
             <div className="contact-filter">
                 <form className="simple-form">
                     <label htmlFor="text">Search:</label>
-                    <input type="text" id="text" onChange={this.handleChange} />
+                    <input type="text" id="text" onChange={this.handleChange} autoComplete="off" />
                 </form>
                 
             </div>

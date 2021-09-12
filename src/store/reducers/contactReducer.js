@@ -22,6 +22,7 @@ export function contactReducer(state = INITIAL_STATE, action){
         case 'DELETE_CONTACT':
             return{
                 ...state,
+                // contacts: state.contacts
                 contacts: state.contacts.filter(contact => contact._id !== action.contactId)
             }
         case 'UPDATE_CONTACT':

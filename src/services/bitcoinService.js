@@ -1,6 +1,4 @@
 import axios from 'axios'
-import { storageService } from './storageService.js'
-import { makeId } from './utilService.js'
 
 export const bitcoinService = {
   getRate,

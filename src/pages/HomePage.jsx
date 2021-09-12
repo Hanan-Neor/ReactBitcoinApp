@@ -1,24 +1,28 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
 import { bitcoinService } from '../services/bitcoinService'
+import { getLoggedinUser } from '../store/actions/userActions'
 import { userService } from '../services/userService'
 
-export class HomePage extends Component {
+class _HomePage extends Component {
     state = {
-        user: {
-            name: 'haha'
-        },
+        // user: {
+        //     name: 'haha'
+        // },
         bitcoinRate: null,
     }
 
     componentDidMount() {
-        this.loadUser()
+        // this.loadUser()
         this.getBitcoinRate()
+        console.log(this.props);
     }
 
-    loadUser = async () => {
-        const user = await userService.getUsers()
-        this.setState({user})
-    }
+    // loadUser = async () => {
+    //     // const user = await userService.getUsers()
+    //     // this.setState({user})
+    //     this.props.getLoggedinUser()
+    // }
 
     getBitcoinRate = async () => {
         const bitcoinRate = await bitcoinService.getRate()
@@ -26,11 +30,12 @@ export class HomePage extends Component {
     }
 
     render() {
-        const { user, bitcoinRate } = this.state
+        const { bitcoinRate } = this.state
+        const {user} = this.props
         if (!user) return (<div>lodaing</div>)
         return (
             <div className="home-page flex column justify-center">
-                <h1>Hello {user.name} !</h1>
+                <h1>Hello {user.username} !</h1>
                 
                     <div>Coins: {user.coins}</div>
                     <div>BTC: {bitcoinRate?  bitcoinRate : 'loading' }</div> 
@@ -39,3 +44,18 @@ export class HomePage extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return{
+        user: state.userModule.loggedInUser
+    }
+}
+
+// const mapDispatchToProps = {
+//     getLoggedinUser
+// }
+
+
+
+// export const HomePage = connect(mapStateToProps,mapDispatchToProps)(_HomePage)
+export const HomePage = connect(mapStateToProps)(_HomePage)
