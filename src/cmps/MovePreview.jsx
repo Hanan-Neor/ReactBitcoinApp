@@ -9,7 +9,7 @@ export function MovePreview({ move, withContactName }) {
             {withContactName && <>To <Link  to={'/contact/' + move.toId}>{move.to}</Link> <br /></>}
             {/* {`To ${move.to}`}<br/> */}
 
-            ₿{move.amount} <br />
+            <span className="bitcoin">₿{move.amount}</span> <br />
 
             {/* // {move.amount.toLocaleString('en-US', {
             //     style: 'currency',

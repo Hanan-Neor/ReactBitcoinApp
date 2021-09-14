@@ -8,6 +8,7 @@ import { StatisticPage } from './StatisticPage'
 import { ContactEditPage } from './ContactEditPage'
 import { connect } from 'react-redux'
 import {getLoggedinUser} from '../store/actions/userActions'
+import { SignupPage } from './SignupPage'
 // import { RobotList } from '../cmps/RobotList'
 // import { RobotDetails } from './RobotDetails'
 // import { robotService } from '../services/robotService'
@@ -66,6 +67,7 @@ class _BitcoinApp extends Component {
             <AppHeader />
           <main   className="main-layout flex column align-center" >
             <Switch>
+              <Route path="/signup" component={SignupPage}></Route>
               <Route path="/stats" component={StatisticPage}></Route>
               <Route path="/contact/edit/:id?" component={ContactEditPage} />
               <Route path="/contact/:id" component={ContactDetailsPage} />

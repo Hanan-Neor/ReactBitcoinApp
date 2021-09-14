@@ -1,4 +1,7 @@
 .app-header{
+    // position: fixed;
+    // top:0;
+    background-color: $bgcAppBar;
     padding-inline: 5px;
     & nav{
         gap:10px;

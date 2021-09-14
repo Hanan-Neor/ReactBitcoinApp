@@ -1,13 +1,28 @@
 .contact-edit{
-    width: 300px;
-    display: flex;
-    flex-direction: column;
+    & label{
+        display: block;
+    }
+    & input:not(:last-of-type){
+        margin-bottom: 10px;
+    }
+    // width: 300px;
+    // display: flex;
+    // flex-direction: column;
 
     // & > input:last-child{
     //     margin-bottom: 20px;
     // }
     & button{
         margin-top: 20px;
+        // display: inline;
     }
+    & .buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
     
 }

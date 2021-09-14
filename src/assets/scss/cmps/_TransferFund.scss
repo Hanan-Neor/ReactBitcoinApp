@@ -1,4 +1,7 @@
 .transfer-fund{
+    width: 70%;
+    align-self: center;
+    // width: 100%;
     background-color: lightseagreen;
     & form{
         div:first-child{
@@ -8,4 +11,10 @@
     input{
         width:100%
     }
+
+    & .nice-button{
+        // display: block;
+        height: 100%;
+    }
+
 }

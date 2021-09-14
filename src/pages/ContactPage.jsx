@@ -46,13 +46,19 @@ class _ContactPage extends Component {
       const {selectContact} = this.props
       if(!contacts) return <div>Loading Contacts...</div>
         return (
-            <div className="contact-page">
-                <ContactFilter onChangeFilter={this.onChangeFilter} />
+            <div className="secondary-layout">
                 <Link to={'/contact/edit'}>
-                <button>Add Contact</button>
+                <button className="nice-button">Add Contact</button>
                 </Link> 
+                <div className="">
+
+                <ContactFilter onChangeFilter={this.onChangeFilter} />
+                </div>
+                <div className=" contact-page">
+
                 <ContactList contacts={contacts} selectContact={selectContact}/>
                 {/* {JSON.stringify(contacts, null, 2)} */}
+                </div>
             </div>
         )
     }

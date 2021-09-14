@@ -7,7 +7,7 @@ export function ContactPreview({ contact, selectContact }) {
         <Link to={'/contact/' + contact._id}>
             <div className="contact-preview">
                 {/* hello preview111111111 */}
-                <img src={'https://robohash.org/' + contact._id} alt="" width="50" height="50" />
+                <img className="avatar" src={'https://robohash.org/' + contact._id} alt="" width="50" height="50" />
                 {contact.name}
 
             </div>

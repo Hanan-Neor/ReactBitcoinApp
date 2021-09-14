@@ -50,6 +50,23 @@
 
 
 // Buttons
+.nice-button{
+    background-color: #ED4E6E;
+    // font-size: 14px;
+    color: $primaryText;
+    padding: 10px;
+    border:0;
+    border-radius: 0;
+    transition: 0.3s all;
+    &:hover{
+        filter: brightness(1.08)
+        // filter: brightness(0.85)
+    }
+}
+
+
+
+
 .simple-button {
     background: transparent;
     color: black;
@@ -109,6 +126,20 @@
 
 
 // Others
+.avatar{
+    border-radius: 50%;
+    background-color: antiquewhite;
+}
+
+.bitcoin{
+    color: $bitCoin--clr;
+}
+
+.back-buttons-bar{
+    padding: 10px;
+    background: $bgc-mainLayout;
+}
+
 .blurred { filter: blur(4px); }
 
 .simple-form {

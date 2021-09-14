@@ -21,37 +21,37 @@ window.userService = userService;
 // userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 100, isAdmin: true})
 // userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 100})
 
-userService.signup({
-  // userService.login({
-  username: "Avi Berger",
-  coins: 100,
-  moves: [
-    {
-      toId: '5a56640269f443a5d64b32ca',
-      to: 'Ochoa Hyde',
-      at: Date.now(),
-      amount: 10
-    },
-    {
-      toId: '5a56640269f443a5d64b32ca',
-      to: 'Ochoa Hyde',
-      at: Date.now(),
-      amount: 10
-    },
-    {
-      toId: '5a56640269f443a5d64b32ca',
-      to: 'Ochoa Hyde',
-      at: Date.now(),
-      amount: 10
-    },
-    {
-      toId: '5a5664025f6ae9aa24a99fde',
-      to: 'Hallie Mclean',
-      at: Date.now(),
-      amount: 20
-    },
-  ],
-})
+// userService.signup({
+//   // userService.login({
+//   username: "Avi Berger",
+//   coins: 100,
+//   moves: [
+//     {
+//       toId: '5a56640269f443a5d64b32ca',
+//       to: 'Ochoa Hyde',
+//       at: Date.now(),
+//       amount: 10
+//     },
+//     {
+//       toId: '5a56640269f443a5d64b32ca',
+//       to: 'Ochoa Hyde',
+//       at: Date.now(),
+//       amount: 10
+//     },
+//     {
+//       toId: '5a56640269f443a5d64b32ca',
+//       to: 'Ochoa Hyde',
+//       at: Date.now(),
+//       amount: 10
+//     },
+//     {
+//       toId: '5a5664025f6ae9aa24a99fde',
+//       to: 'Hallie Mclean',
+//       at: Date.now(),
+//       amount: 20
+//     },
+//   ],
+// })
 
 function getUsers() {
   // return storageService.query('user');
@@ -95,7 +95,7 @@ async function login(userCred) {
 async function signup(userCred) {
   // let signedup = await storageService.query('user')
   const signedup = await storageService.query('user')
-  if (!signedup || !signedup.length) {
+  // if (!signedup || !signedup.length) {
     // signedup = await storageService.post('user', userCred); //CLIENT STORAGE
     const user = await storageService.post('user', userCred); //CLIENT STORAGE
     
@@ -105,7 +105,7 @@ async function signup(userCred) {
     // const users = await getUsers();
     // console.log('users', users);
     return _saveLocalUser(user);
-  }
+  // }
   // }else{
   //   return _saveLocalUser(signedup)
   // }

@@ -1,5 +1,6 @@
 .contact-preview {
-  background-color:rgb(227, 238, 253);
+  // background-color:rgb(227, 238, 253);
+  background-color:$bgcCards;
   display: flex;
   // justify-content: space-between;
   align-items: center;
@@ -7,9 +8,10 @@
   box-shadow: 0 0 4px 1px #0000003b;
   cursor: pointer;
   &:hover{
-    background-color: rgb(240, 240, 240);
+    // background-color: rgb(240, 240, 240);
+    filter: brightness(1.15)
   }
   & img{
-    margin-right: 2rem;
+    margin-right: 10px;
   }
 }

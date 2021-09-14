@@ -1,11 +1,11 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { MoveList } from '../cmps/MoveList'
 import { TransferFund } from '../cmps/TransferFund'
 // import contactService, {ContactService} from '../services/contactService' 
 import { contactService } from '../services/contactService2'
-import { deleteContact,loadContacts } from '../store/actions/contactActions'
+import { deleteContact, loadContacts } from '../store/actions/contactActions'
 import { addMove } from '../store/actions/userActions'
 
 
@@ -13,14 +13,14 @@ import { addMove } from '../store/actions/userActions'
 class _ContactDetailsPage extends Component {
     state = {
         contact: null,
-        moves:null
+        moves: null
     }
 
     componentDidMount() {
-    // this.props.getLoggedinUser()
+        // this.props.getLoggedinUser()
 
         this.loadContact()
-    // console.log(this.props);
+        // console.log(this.props);
 
     }
 
@@ -31,34 +31,34 @@ class _ContactDetailsPage extends Component {
         this.setState({ contact })
     }
 
-     getMovesToContact = async () => {
+    getMovesToContact = async () => {
         const userMoves = await this.props.loggedInUser.moves
-        const movesToContact = userMoves.filter(move => {return move.toId === this.state.contact._id})
-        this.setState({ moves: movesToContact})
-    }
-    
-    deleteContact = async () => {
-         await this.props.deleteContact(this.state.contact._id)
-            this.props.history.push('/contact')
+        const movesToContact = userMoves.filter(move => { return move.toId === this.state.contact._id })
+        this.setState({ moves: movesToContact })
     }
 
-    goBack = () =>{
+    // deleteContact = async () => {
+    //     await this.props.deleteContact(this.state.contact._id)
+    //     this.props.history.push('/contact')
+    // }
+
+    goBack = () => {
         this.props.history.push('/contact/')
     }
 
-  
+
 
     onTransferCoins = (transferAmount) => {
         // console.log(transferAmount);
-        const {contact} = this.state
+        const { contact } = this.state
         const moveToSave = {
-            toId : contact._id,
-            to : contact.name,
+            toId: contact._id,
+            to: contact.name,
             at: Date.now(),
             amount: transferAmount
         }
 
-         this.props.addMove(moveToSave)
+        this.props.addMove(moveToSave)
         // //  const movesToSave = this.state.moves.push(moveToSave)
         // this.setState({moves:  movesToSave})
         this.loadContact()
@@ -72,26 +72,33 @@ class _ContactDetailsPage extends Component {
         // const {loggedInUser} = this.props
         // if (!contact) return <div>wow I am loading</div>
         // if (!contact|| !loggedInUser.moves) return <div>wow I am loading</div>
-        if (!contact|| !moves) return <div>wow I am loading</div>
+        if (!contact || !moves) return <div>wow I am loading</div>
         return (
-            <div className="flex column ">
-
-                <div className="contact-details flex column" >
-                    <button onClick={this.goBack}>Back</button>
-                    <img src={'https://robohash.org/' + contact._id} alt="" width="200" height="200" />
-                    <div className="details">
-                    <p><b>Name: </b>{contact.name}</p>
-                    <p><b>Phone: </b>{contact.phone}</p>
-                    <p><b>Email: </b>{contact.email}</p>
-                    </div>
-                    <div className="buttons">
-                    <Link to={'/contact/edit/' + contact._id} >
-                        <button>Edit</button>
+            <div className="secondary-layout flex column ">
+                <div className="back-buttons-bar flex space-between">
+                    <Link>
+                        <div onClick={this.goBack}>Back</div>
                     </Link>
-                    <button onClick={this.deleteContact}>Delete</button>
-                    </div>
+                    <Link to={'/contact/edit/' + contact._id} >
+                        <div>Edit</div>
+                    </Link>
+
                 </div>
-                <TransferFund  className="contact-details"  onTransferCoins={ this.onTransferCoins } maxCoins={this.props.loggedInUser.coins}></TransferFund>
+                <div className="content-layout contact-details flex column" >
+                    <img className="avatar" src={'https://robohash.org/' + contact._id} alt="" width="200" height="200" />
+                    <div className="details">
+                        <p className="name"><h1>{contact.name}</h1></p>
+                        <p className="phone"><h3>{contact.phone}</h3></p>
+                        <p className="email">{contact.email}</p>
+                        {/* <p><b>Name: </b>{contact.name}</p>
+                        <p><b>Phone: </b>{contact.phone}</p>
+                        <p><b>Email: </b>{contact.email}</p> */}
+                    </div>
+                    {/* <div className="buttons">
+                        <button  onClick={this.deleteContact}>Delete</button>
+                    </div> */}
+                <TransferFund className="contact-details" onTransferCoins={this.onTransferCoins} maxCoins={this.props.loggedInUser.coins}></TransferFund>
+                </div>
                 {/* {JSON.stringify(loggedInUser.moves)} */}
                 {/* <MoveList moves={loggedInUser.moves}></MoveList> */}
                 <MoveList moves={moves} title={`Moves History`}></MoveList>
@@ -103,7 +110,7 @@ class _ContactDetailsPage extends Component {
 const mapStateToProps = state => {
     return {
         // moves:state.userModule.loggedInUser.moves
-        loggedInUser:state.userModule.loggedInUser
+        loggedInUser: state.userModule.loggedInUser
     }
 }
 
@@ -115,6 +122,6 @@ const mapDispatchToProps = {
 
     // getLoggedinUser
 
-    }
+}
 
-export const ContactDetailsPage = connect(mapStateToProps,mapDispatchToProps)(_ContactDetailsPage)
+export const ContactDetailsPage = connect(mapStateToProps, mapDispatchToProps)(_ContactDetailsPage)
