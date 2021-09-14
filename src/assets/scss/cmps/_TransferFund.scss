@@ -1,0 +1,11 @@
+.transfer-fund{
+    background-color: lightseagreen;
+    & form{
+        div:first-child{
+            width: 100%;
+        }
+    } 
+    input{
+        width:100%
+    }
+}

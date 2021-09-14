@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     // }
 }
 
-export function userReducer(state = INITIAL_STATE , action){
+export function userReducer(state = INITIAL_STATE, action) {
     switch (action.type) {
         // case 'SPEND_BALANCE':
         //     return{
@@ -18,14 +18,26 @@ export function userReducer(state = INITIAL_STATE , action){
 
         //         }
         //     }
-        case 'SET_USER' :
-            return{
+        case 'SET_USER':
+            return {
                 ...state,
                 loggedInUser: action.loggedInUser
-            }            
-           
-    
+            }
+
+        case 'UPDATE_USER':
+            return {
+                ...state,
+                loggedInUser: action.loggedInUser
+                // loggedInUser: {
+                //     ...state.loggedInUser,
+                //     moves: moves.unshift(action.move),
+                //     coins: state.loggedInUser.coins - action.move.amount
+                //   }
+            }
+
+
+
         default:
-           return state
+            return state
     }
 }

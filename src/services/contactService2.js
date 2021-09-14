@@ -149,7 +149,7 @@ function filter(term,contacts) {
 
 async function getById(userId) {
   const user = await storageService.get(STORAGE_KEY, userId);
-  console.log(user);
+  // console.log(user);
   return user;
 }
 
@@ -159,6 +159,7 @@ function remove(id) {
 }
 
 async function save(contactToSave) {
+  // console.log(contactToSave._id);
   if (contactToSave._id) {
     await storageService.put(STORAGE_KEY, contactToSave)
   } else {

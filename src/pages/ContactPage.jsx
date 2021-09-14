@@ -21,7 +21,7 @@ class _ContactPage extends Component {
 
             this.props.loadContacts()
         // }
-        console.log(this.props);
+        // console.log(this.props);
     }
 
     // async loadContacts(){

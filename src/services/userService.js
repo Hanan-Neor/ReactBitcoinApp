@@ -22,9 +22,35 @@ window.userService = userService;
 // userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 100})
 
 userService.signup({
+  // userService.login({
   username: "Avi Berger",
   coins: 100,
-  moves: [],
+  moves: [
+    {
+      toId: '5a56640269f443a5d64b32ca',
+      to: 'Ochoa Hyde',
+      at: Date.now(),
+      amount: 10
+    },
+    {
+      toId: '5a56640269f443a5d64b32ca',
+      to: 'Ochoa Hyde',
+      at: Date.now(),
+      amount: 10
+    },
+    {
+      toId: '5a56640269f443a5d64b32ca',
+      to: 'Ochoa Hyde',
+      at: Date.now(),
+      amount: 10
+    },
+    {
+      toId: '5a5664025f6ae9aa24a99fde',
+      to: 'Hallie Mclean',
+      at: Date.now(),
+      amount: 20
+    },
+  ],
 })
 
 function getUsers() {
@@ -67,13 +93,22 @@ async function login(userCred) {
   // if (user) return _saveLocalUser(user); //SERVER STORAGE
 }
 async function signup(userCred) {
-  const user = await storageService.post('user', userCred); //CLIENT STORAGE
-  // const user = await httpService.post('auth/signup', userCred)  //SERVER STORAGE
-  // socketService.emit('set-user-socket', user._id); //SERVER STORAGE
-  console.log('just signed up', user);
-  const users = await getUsers();
-  console.log('users', users);
-  return _saveLocalUser(user);
+  // let signedup = await storageService.query('user')
+  const signedup = await storageService.query('user')
+  if (!signedup || !signedup.length) {
+    // signedup = await storageService.post('user', userCred); //CLIENT STORAGE
+    const user = await storageService.post('user', userCred); //CLIENT STORAGE
+    
+    // const user = await httpService.post('auth/signup', userCred)  //SERVER STORAGE
+    // socketService.emit('set-user-socket', user._id); //SERVER STORAGE
+    // console.log('just signed up', user);
+    // const users = await getUsers();
+    // console.log('users', users);
+    return _saveLocalUser(user);
+  }
+  // }else{
+  //   return _saveLocalUser(signedup)
+  // }
 }
 async function logout() {
   sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER);
