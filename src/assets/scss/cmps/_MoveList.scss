@@ -2,6 +2,14 @@
     display: flex;
     flex-direction: column;
     gap: 1px;
-    background-color: lightsteelblue;
+    // background-color: rgb(24, 44, 70);
+    background-color:$bgc-mainLayout;
     padding: 1px;
+
+
+    & .no-moves{
+        background-color: $bgcCards;
+    padding: 5px 10px;
+
+    }
 }

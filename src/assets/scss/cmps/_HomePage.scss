@@ -2,4 +2,7 @@
     .back-buttons-bar{
         justify-content: flex-end ;
     }
+    & span.usd{
+        color: $hintText;
+    }
 }

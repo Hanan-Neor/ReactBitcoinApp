@@ -1,22 +1,38 @@
 import { Component } from 'react'
 import { bitcoinService } from '../services/bitcoinService'
 import { Sparklines, SparklinesLine } from 'react-sparklines';
+import Chart from 'chart.js/auto';
+import { Bar, Line } from 'react-chartjs-2'
+// import { getRelativePosition } from 'chart.js/helpers';
 
 export class StatisticPage extends Component {
 
     state = {
         marketPrice: null,
-        confirmedTransactions: null
+        confirmedTransactions: null,
+        chartData:{
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+            label: "My First dataset",
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            // data: [0, 10, 5, 2, 20, 30, 45],
+            // data: this.state.marketPrice.values.map(value => value.y),
+            }]
+
+        }
     }
 
     componentDidMount() {
         this.loadMarketPrice()
         this.loadConfirmTransactions()
+
     }
 
     loadMarketPrice = async () => {
         const marketPrice = await bitcoinService.getMarketPrice()
         this.setState({ marketPrice })
+        console.log(    marketPrice    );
     }
 
     loadConfirmTransactions = async () => {
@@ -25,18 +41,23 @@ export class StatisticPage extends Component {
     }
 
 
+
+
+
     render() {
+
+
         const { marketPrice, confirmTransactions } = this.state
         if (!marketPrice || !confirmTransactions) return <div>loading</div>
         return (
-            <div className="flex column" style={{width:'100%'}}>
+            <div className="flex column" style={{ width: '100%' }}>
                 <h1>statistics!</h1>
                 <div>
                     <h3>Market Price</h3>
 
                     <Sparklines data={marketPrice.values.map(value => value.y)}
-                      margin={10}>
-                        <SparklinesLine color="blue"  style={{strokeWidth:".5", fill:"none"}} />
+                        margin={10}>
+                        <SparklinesLine color="blue" style={{ strokeWidth: ".5", fill: "none" }} />
                     </Sparklines>
 
                 </div>
@@ -48,11 +69,62 @@ export class StatisticPage extends Component {
 
                     <Sparklines data={confirmTransactions.values.map(value => value.y)}
                         margin={10}>
-                        <SparklinesLine color="red" style={{strokeWidth:".5", }}/>
+                        <SparklinesLine color="red" style={{ strokeWidth: ".5", }} />
                     </Sparklines>
 
                 </div>
                 {/* {JSON.stringify(confirmTransactions.values)} */}
+
+
+
+                < Line
+                    // data={this.state.chartData}
+                    data={{
+                        // labels: ["January", "February", "March", "April", "May", "June", "July"],
+                        labels: this.state.marketPrice.values.map(value => new Date(value.x*1000).toLocaleString()),
+                        datasets: [{
+                            radius:2,
+                            hoverRadius:3,
+                            borderWidth:1,
+                            label: "Market Price",
+                            backgroundColor: 'rgb(255, 99, 132)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            // data: [0, 10, 5, 2, 20, 30, 45],
+                            // fill:true,
+                            data: this.state.marketPrice.values.map(value => value.y),
+                            }]
+                      }}
+                     
+                    // options={chartOptions}
+                    height={500}
+                    width={700}
+                />
+
+                < Line
+                    // data={this.state.chartData}
+                    data={{
+                        // labels: ["January", "February", "March", "April", "May", "June", "July"],
+                        labels: this.state.confirmTransactions.values.map(value => new Date(value.x*1000).toLocaleString()),
+                        datasets: [{
+                            radius:2,
+                            hoverRadius:3,
+
+                            borderWidth:1,
+                            label: "Confirm Transactions",
+                            // backgroundColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgb(140, 102, 20)',
+                            // borderColor: 'rgb(255, 99, 132)',
+                            borderColor: '#F3931C',
+                            // data: [0, 10, 5, 2, 20, 30, 45],
+                            fill:true,
+                            data: this.state.confirmTransactions.values.map(value => value.y),
+                            
+                            }]
+                      }}
+                    // options={chartOptions}
+                    // height={400}
+                    // width={700}
+                />
             </div>
         )
     }

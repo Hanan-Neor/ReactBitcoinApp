@@ -86,6 +86,7 @@ async function update(user) {
 async function login(userCred) {
   const users = await storageService.query('user'); //CLIENT STORAGE
   const user = users.find((user) => user.username === userCred.username); //CLIENT STORAGE
+  if (!user) return // 
   return _saveLocalUser(user); //CLIENT STORAGE
 
   // const user = await httpService.post('auth/login', userCred) //SERVER STORAGE

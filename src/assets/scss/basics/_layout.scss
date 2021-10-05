@@ -6,6 +6,8 @@ body{
 .main-layout{
     align-self: center;
     min-width:450px;
+    // min-width:350px;
+
     // display: flex;
     // justify-content: center;
     // background-color: rgb(211, 230, 255);
@@ -15,6 +17,25 @@ body{
     padding: 20px;
     // background-color:$bgcMain;
     background-color:$bgc-mainLayout;
+
+
+
+    // @include for-mobile-layout {
+    //     max-width: initial;
+    // }
+
+    // @include for-tablet-layout {
+    //     max-width: $mobile-breakpoint;
+    // }
+
+    // @include for-normal-layout {
+    //     max-width: $tablet-breakpoint;
+    // }
+
+    // @include for-wide-layout {
+    //     max-width: $normal-breakpoint;
+    // }
+    
 
 }
 

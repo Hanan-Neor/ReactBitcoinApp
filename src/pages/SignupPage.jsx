@@ -51,7 +51,7 @@ class _SignupPage extends Component {
     handleSubmit =async (event) => {
         event.preventDefault()
         // this.setState({name:''})
-        console.log(this.state.signedUp);
+        // console.log(this.state.signedUp);
         await userService.signup(this.state.signedUp)
         await this.props.getLoggedinUser()
         this.props.history.push('/')

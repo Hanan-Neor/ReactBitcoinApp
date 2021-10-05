@@ -7,6 +7,7 @@ import { TransferFund } from '../cmps/TransferFund'
 import { contactService } from '../services/contactService2'
 import { deleteContact, loadContacts } from '../store/actions/contactActions'
 import { addMove } from '../store/actions/userActions'
+import { bitcoinService } from '../services/bitcoinService'
 
 
 
@@ -46,16 +47,22 @@ class _ContactDetailsPage extends Component {
         this.props.history.push('/contact/')
     }
 
+    getBitcoinRate = async () => {
+        const bitcoinRate = await bitcoinService.getRate()
+        // const bitcoinUsdRate = bitcoinRate.USD.last
+        return bitcoinRate.USD.last
+    }
 
 
-    onTransferCoins = (transferAmount) => {
+    onTransferCoins = async (transferAmount) => {
         // console.log(transferAmount);
         const { contact } = this.state
         const moveToSave = {
             toId: contact._id,
             to: contact.name,
             at: Date.now(),
-            amount: transferAmount
+            amount: transferAmount,
+            usdAmount : await this.getBitcoinRate()*transferAmount
         }
 
         this.props.addMove(moveToSave)

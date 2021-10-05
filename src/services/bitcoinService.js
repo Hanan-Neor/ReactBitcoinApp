@@ -14,7 +14,8 @@ const STORAGE_KEY = 'bitcoins'
 
 async function getRate(){
     try{
-        const res = await axios.get('https://blockchain.info/tobtc?currency=USD&value=1')
+        // const res = await axios.get('https://blockchain.info/tobtc?currency=USD&value=1')
+        const res = await axios.get('https://blockchain.info/ticker')   // look here for instructions  https://blockchain.info/api/exchange_rates_api
         // console.log(res);
         return res.data
     }

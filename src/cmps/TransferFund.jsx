@@ -25,14 +25,18 @@ export class TransferFund extends Component {
         this.setState({ amount: '' })
     }
 
+    transferPrecision = () =>{
+        return 0.000001
+    }
+
     render() {
         return (
             <div className="transfer-fund">
                 <form className="transfer-form flex" onSubmit={this.handleSubmit} autoComplete="off" >
                     <div>
                         <label htmlFor="amount"></label>
-                        <input id="amount" name="amount" type="number" placeholder="How much?" value={this.state.amount} onChange={this.handleChange} name="" min="1" max={this.props.maxCoins}
-                            autoComplete="off" />
+                        <input id="amount" name="amount" type="number" placeholder="How much?" value={this.state.amount} onChange={this.handleChange} name="" min={this.transferPrecision()} max={this.props.maxCoins}
+                          step={this.transferPrecision()}  autoComplete="off" />
                     </div>
                     <div>
                         <button className="nice-button">Transfer</button>

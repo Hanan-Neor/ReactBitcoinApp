@@ -6,10 +6,12 @@ export function MovePreview({ move, withContactName }) {
         <div className="move-preview">
             {/* {JSON.stringify(move)} */}
             {/* {withContactName? `To ${move.to}` : ''} */}
-            {withContactName && <>To <Link  to={'/contact/' + move.toId}>{move.to}</Link> <br /></>}
+            {withContactName && <>To <Link to={'/contact/' + move.toId}>{move.to}</Link> <br /></>}
             {/* {`To ${move.to}`}<br/> */}
 
-            <span className="bitcoin">₿{move.amount}</span> <br />
+            <span className="bitcoin">₿ {move.amount}</span> | 
+            <span className="usd"> {move.usdAmount.toLocaleString('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2,maximumFractionDigits: 2,})}</span> 
+            <br />
 
             {/* // {move.amount.toLocaleString('en-US', {
             //     style: 'currency',
@@ -20,7 +22,7 @@ export function MovePreview({ move, withContactName }) {
             // })} B <br /> */}
 
             {/* {new Date(move.at).toLocaleDateString()} */}
-            {new Date(move.at).toLocaleString()}
+            <span className="sm-font">{new Date(move.at).toLocaleString()}</span>
         </div>
     )
 }
