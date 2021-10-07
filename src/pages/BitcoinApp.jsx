@@ -61,6 +61,10 @@ class _BitcoinApp extends Component {
     // document.body.classList.toggle('menu-open')
   }
 
+  // swype = (ev) =>{
+  //   prevEv = ev
+  //   if (ev.x)
+  // }
 
 
   render() {
@@ -74,7 +78,8 @@ class _BitcoinApp extends Component {
       <Router>
         <div className="screen" onClick={this.toggleMenu}></div>
             <AppHeader />
-          <main   className="main-layout flex column align-center" >
+          {/* <main   className="main-layout flex column align-center" onTouch={this.toggleMenu}> */}
+          <main   className="main-layout flex column align-center">
             <Switch>
               <Route path="/signup" component={SignupPage}></Route>
               <Route path="/stats" component={StatisticPage}></Route>

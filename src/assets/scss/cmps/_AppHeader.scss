@@ -2,7 +2,7 @@
     // position: fixed;
     // top:0;
     background-color: $bgcAppBar;
-    padding-inline: 5px;
+    padding-inline: 10px;
     & nav {
         // gap: 10px;
         .active-nav {
@@ -12,7 +12,7 @@
     }
     .right-side {
         & .hamburger-button {
-            font-size: 1.5rem;
+            font-size: 2rem;
             @include for-tablet-layout {
                 display: none;
             }
@@ -25,6 +25,12 @@
                 border-bottom: 1px solid #fff;
 
                     padding: 1rem;
+                }
+
+                .active-nav {
+                    // color: red;
+                    text-decoration: none;
+                    background-color: rgba(0,0,0,0.7);
                 }
                     
                 
@@ -41,7 +47,7 @@
                 text-align: center;
                 // gap: 1rem;
                 transform: translateX(100%);
-                transition: transform 0.6s;
+                transition: transform 0.5s;
                 &.menu-open {
                     transform: translateX(0);
                 }

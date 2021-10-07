@@ -14,9 +14,13 @@ export class _AppHeader extends Component {
         // console.log(this.props);
     }
     toggleMenu = () =>{
-        document.querySelector(".right-side .nav").classList.toggle('menu-open')
-        document.querySelector(".screen").classList.toggle('menu-open')
-        // document.body.classList.toggle('menu-open')
+            document.querySelector(".right-side .nav").classList.toggle('menu-open')
+            document.querySelector(".screen").classList.toggle('menu-open')
+    }
+
+    closeMenu = () =>{
+        if(!document.querySelector(".right-side .nav").classList.contains('menu-open')) return
+        this.toggleMenu()
     }
 
     render() {
@@ -25,16 +29,16 @@ export class _AppHeader extends Component {
         return (
             <div className="app-header flex align-center space-between">
                 <div>
-                    <h1>Mister Bitcoin</h1>
+                    <h1>Mr.Bitcoin</h1>
                 </div>
 
                 <div className="right-side flex align-center">
                     {user?
 
                     <>
-                    <div>
+                    {/* <div>
                         Hello {user.username}!
-                    </div>
+                    </div> */}
 
                     <div className="hamburger-button" onClick={this.toggleMenu}>
                         ≣
@@ -42,9 +46,9 @@ export class _AppHeader extends Component {
 
                     <nav className="nav flex">
                         {/* Hello <NavLink activeClassName="active-nav" exact to="/"><div>{user.username}!</div></NavLink> */}
-                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" exact to="/"><div>Home</div></NavLink>
-                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" to="/contact"><div>Contacts</div></NavLink>
-                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" to="/stats"><div>Stats</div></NavLink>
+                        <NavLink onClick={this.closeMenu} activeClassName="active-nav" exact to="/"><div>Home</div></NavLink>
+                        <NavLink onClick={this.closeMenu} activeClassName="active-nav" to="/contact"><div>Contacts</div></NavLink>
+                        <NavLink onClick={this.closeMenu} activeClassName="active-nav" to="/stats"><div>Stats</div></NavLink>
 
                     </nav></>
                     :

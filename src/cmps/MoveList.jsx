@@ -11,7 +11,7 @@ export function MoveList({ moves, title, withContactName, toggleMovesList, butto
         //     {JSON.stringify(moves)}
         // </div>
         <div className="move-list">
-            <div className="flex space-between align-center">
+            <div style={{padding:'5px 10px'}} className="flex space-between align-center">
                 <h3>{title}</h3>
                 <Link><span className="sm-font" onClick={toggleMovesList} >{buttonTitle}</span></Link>
             </div>
