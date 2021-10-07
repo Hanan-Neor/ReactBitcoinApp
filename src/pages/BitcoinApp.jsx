@@ -55,6 +55,13 @@ class _BitcoinApp extends Component {
   //   await robotService.remove(robotId)
   //   this.loadRobots()
   // }
+  toggleMenu = () =>{
+    document.querySelector(".right-side .nav").classList.toggle('menu-open')
+    document.querySelector(".screen").classList.toggle('menu-open')
+    // document.body.classList.toggle('menu-open')
+  }
+
+
 
   render() {
     const { selectedContactId ,page } = this.state
@@ -63,7 +70,9 @@ class _BitcoinApp extends Component {
     // if (!robots) return <div className="page-loading-screen">Loading...</div>
 
     return (
+      
       <Router>
+        <div className="screen" onClick={this.toggleMenu}></div>
             <AppHeader />
           <main   className="main-layout flex column align-center" >
             <Switch>

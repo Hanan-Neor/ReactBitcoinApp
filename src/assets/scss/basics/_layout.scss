@@ -1,11 +1,29 @@
-body{
-    color:$primaryText;
-
+body {
+    color: $primaryText;
 }
-
-.main-layout{
+.screen {
+    // display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.6s;
+    &.menu-open {
+        // display: block;
+        pointer-events: unset;
+        opacity: 1;
+    }
+}
+.main-layout {
     align-self: center;
-    min-width:450px;
+
+    // width: 100%;
+    // min-width:450px;
     // min-width:350px;
 
     // display: flex;
@@ -13,50 +31,53 @@ body{
     // background-color: rgb(211, 230, 255);
     // background-color: $bgcMain;
     // background-color: #000000;
-    flex:1;
-    padding: 20px;
+    flex: 1;
     // background-color:$bgcMain;
-    background-color:$bgc-mainLayout;
+    background-color: $bgc-mainLayout;
 
+    @include for-mobile-layout {
+        width: 100%;
+        padding: 3px;
 
+        // max-width: initial;
+        // background-color: red;
+    }
 
-    // @include for-mobile-layout {
-    //     max-width: initial;
-    // }
+    @include for-tablet-layout {
+        padding: 20px;
 
-    // @include for-tablet-layout {
-    //     max-width: $mobile-breakpoint;
-    // }
+        min-width: 450px;
 
-    // @include for-normal-layout {
-    //     max-width: $tablet-breakpoint;
-    // }
+        // max-width: $mobile-breakpoint;
+        // background-color: yellow;
+    }
 
-    // @include for-wide-layout {
-    //     max-width: $normal-breakpoint;
-    // }
-    
+    @include for-normal-layout {
+        // max-width: $tablet-breakpoint;
+        // background-color: blue;
+    }
 
+    @include for-wide-layout {
+        // max-width: $normal-breakpoint;
+        // background-color: green;
+    }
 }
 
-.secondary-layout{
+.secondary-layout {
     width: 100%;
     // padding: 20px;
-
 }
 
-.content-layout{
+.content-layout {
     width: 100%;
     // background-color:$bgcMain;
-    background-color:$bgcCards;
+    background-color: $bgcCards;
     padding: 10px;
 }
 
-.app-container{
+.app-container {
     min-height: 100vh;
 }
-
-
 
 .container {
     max-width: $normal-breakpoint;
@@ -64,7 +85,6 @@ body{
     padding-left: 10px;
     padding-right: 10px;
     padding: 20px;
-
 
     @include for-mobile-layout {
         max-width: initial;

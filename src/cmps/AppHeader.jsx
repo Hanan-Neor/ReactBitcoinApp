@@ -12,7 +12,11 @@ export class _AppHeader extends Component {
         await this.props.getLoggedinUser()
         //    this.props.history.push('/')
         // console.log(this.props);
-
+    }
+    toggleMenu = () =>{
+        document.querySelector(".right-side .nav").classList.toggle('menu-open')
+        document.querySelector(".screen").classList.toggle('menu-open')
+        // document.body.classList.toggle('menu-open')
     }
 
     render() {
@@ -24,18 +28,23 @@ export class _AppHeader extends Component {
                     <h1>Mister Bitcoin</h1>
                 </div>
 
-                <div className="right-side flex">
+                <div className="right-side flex align-center">
                     {user?
 
-                    <><div>
+                    <>
+                    <div>
                         Hello {user.username}!
-                        {/* <button onClick={this.logout}> Logout</button> */}
-
                     </div>
-                    <nav className="flex">
-                        <NavLink activeClassName="active-nav" exact to="/"><div>Home</div></NavLink>
-                        <NavLink activeClassName="active-nav" to="/contact"><div>Contacts</div></NavLink>
-                        <NavLink activeClassName="active-nav" to="/stats"><div>Stats</div></NavLink>
+
+                    <div className="hamburger-button" onClick={this.toggleMenu}>
+                        ≣
+                    </div>
+
+                    <nav className="nav flex">
+                        {/* Hello <NavLink activeClassName="active-nav" exact to="/"><div>{user.username}!</div></NavLink> */}
+                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" exact to="/"><div>Home</div></NavLink>
+                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" to="/contact"><div>Contacts</div></NavLink>
+                        <NavLink onClick={this.toggleMenu} activeClassName="active-nav" to="/stats"><div>Stats</div></NavLink>
 
                     </nav></>
                     :

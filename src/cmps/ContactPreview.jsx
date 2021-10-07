@@ -8,7 +8,10 @@ export function ContactPreview({ contact, selectContact }) {
             <div className="contact-preview">
                 {/* hello preview111111111 */}
                 <img className="avatar" src={'https://robohash.org/' + contact._id} alt="" width="50" height="50" />
-                {contact.name}
+                <div className="flex column">
+                    {contact.name}
+                {/* <span className="phone">{contact.phone}</span> */}
+                </div>
 
             </div>
         </Link>
