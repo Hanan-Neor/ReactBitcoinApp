@@ -18,6 +18,9 @@ export function addMove(move){
             const {loggedInUser} = getState().userModule
             if (loggedInUser.coins < move.amount)return alert('You dont have enough money!')
             loggedInUser.coins -= move.amount
+
+            loggedInUser.coins =loggedInUser.coins.toFixed(6) 
+
             loggedInUser.moves.unshift(move)
             await userService.update(loggedInUser)
             dispatch({type: 'SET_USER' , loggedInUser})

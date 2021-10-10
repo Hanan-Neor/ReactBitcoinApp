@@ -11,7 +11,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 class _HomePage extends Component {
     state = {
-        showAll:false,
+        showAll: false,
         marketPrice: null,
 
         // user: {
@@ -75,14 +75,21 @@ class _HomePage extends Component {
 
     toggleMovesList = () => {
         const showAll = !this.state.showAll
-        this.setState({showAll})
-// alert('hi')
+        this.setState({ showAll })
+        // alert('hi')
     }
+
+    // bitcoinToShow = (coins) => {
+    //     while (coins % 10 === 0) {
+    //         coins = coins / 10
+    //     }
+    //     return coins
+    // }
 
 
 
     render() {
-        const {showAll} = this.state
+        const { showAll } = this.state
         const { marketPrice } = this.state
         const { bitcoinRate } = this.state
         const { user } = this.props
@@ -104,6 +111,8 @@ class _HomePage extends Component {
                     <div className="flex space-between bottom-divider">
                         <div className="left-side">
                             <div className="sm-font">Current Balance</div>
+                            {/* <div>BIT: <span className="bitcoin md-font">₿ {user.coins.toFixed(6)}</span></div> */}
+                            {/* <div>BIT: <span className="bitcoin md-font">₿ {this.bitcoinToShow(user.coins)}</span></div> */}
                             <div>BIT: <span className="bitcoin md-font">₿ {user.coins}</span></div>
                             <div>USD: <span className="usd">{this.bitcoinRateToShow(user.coins * bitcoinRate)}</span></div>
                         </div>
@@ -137,7 +146,7 @@ class _HomePage extends Component {
                     </div>)} */}
 
                 {!showAll && (<><MoveList moves={user.moves.slice(0, 5)} title={'Last 5 moves'} withContactName={true} toggleMovesList={this.toggleMovesList} buttonTitle={'Show all'}></MoveList></>)}
-                {showAll &&(<><MoveList moves={user.moves} title={'All moves'} withContactName={true} toggleMovesList={this.toggleMovesList} buttonTitle={'Show less'}></MoveList></>)}
+                {showAll && (<><MoveList moves={user.moves} title={'All moves'} withContactName={true} toggleMovesList={this.toggleMovesList} buttonTitle={'Show less'}></MoveList></>)}
             </div>
         )
     }

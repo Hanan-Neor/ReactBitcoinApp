@@ -29,7 +29,7 @@ export class _AppHeader extends Component {
         return (
             <div className="app-header flex align-center space-between">
                 <div>
-                    <h1>Mr.Bitcoin</h1>
+                <NavLink style={{'textDecoration':'none'}} exact to="/">  <h1>Mr.Bitcoin</h1></NavLink>
                 </div>
 
                 <div className="right-side flex align-center">

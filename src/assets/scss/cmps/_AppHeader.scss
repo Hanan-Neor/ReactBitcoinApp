@@ -12,6 +12,7 @@
     }
     .right-side {
         & .hamburger-button {
+            cursor: pointer;
             font-size: 2rem;
             @include for-tablet-layout {
                 display: none;

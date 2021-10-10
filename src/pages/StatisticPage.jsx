@@ -51,7 +51,7 @@ export class StatisticPage extends Component {
         if (!marketPrice || !confirmTransactions) return <div>loading</div>
         return (
             <div className="flex column" style={{ width: '100%' }}>
-                <h1>statistics!</h1>
+                {/* <h1>statistics!</h1> */}
                 <div>
                     <h3>Market Price</h3>
 

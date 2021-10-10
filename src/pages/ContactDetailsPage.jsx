@@ -61,7 +61,7 @@ class _ContactDetailsPage extends Component {
             toId: contact._id,
             to: contact.name,
             at: Date.now(),
-            amount: transferAmount,
+            amount: +transferAmount,
             usdAmount : await this.getBitcoinRate()*transferAmount
         }
 
