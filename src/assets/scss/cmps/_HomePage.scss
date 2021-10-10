@@ -1,8 +1,19 @@
 .home-page{
+    // & .balance{
+    //     flex-wrap: wrap;
+    // }
     .back-buttons-bar{
         justify-content: flex-end ;
     }
     & span.usd{
         color: $hintText;
     }
+    // & .right-side{
+    //     background: #181818;
+    //     border-radius: 15px;
+    //     padding: 10px;
+    //     display: flex;
+    //     flex-direction: column;
+    //     justify-content: center;
+    // }
 }

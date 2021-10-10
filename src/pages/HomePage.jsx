@@ -108,7 +108,7 @@ class _HomePage extends Component {
 
                     <h1>Hello {user.username} !</h1>
 
-                    <div className="flex space-between bottom-divider">
+                    <div className="balance flex space-between bottom-divider">
                         <div className="left-side">
                             <div className="sm-font">Current Balance</div>
                             {/* <div>BIT: <span className="bitcoin md-font">₿ {user.coins.toFixed(6)}</span></div> */}
