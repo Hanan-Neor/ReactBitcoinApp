@@ -10,14 +10,14 @@ export class StatisticPage extends Component {
     state = {
         marketPrice: null,
         confirmedTransactions: null,
-        chartData:{
+        chartData: {
             labels: ["January", "February", "March", "April", "May", "June", "July"],
             datasets: [{
-            label: "My First dataset",
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            // data: [0, 10, 5, 2, 20, 30, 45],
-            // data: this.state.marketPrice.values.map(value => value.y),
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                // data: [0, 10, 5, 2, 20, 30, 45],
+                // data: this.state.marketPrice.values.map(value => value.y),
             }]
 
         }
@@ -32,7 +32,7 @@ export class StatisticPage extends Component {
     loadMarketPrice = async () => {
         const marketPrice = await bitcoinService.getMarketPrice()
         this.setState({ marketPrice })
-        console.log(    marketPrice    );
+        console.log(marketPrice);
     }
 
     loadConfirmTransactions = async () => {
@@ -50,80 +50,72 @@ export class StatisticPage extends Component {
         const { marketPrice, confirmTransactions } = this.state
         if (!marketPrice || !confirmTransactions) return <div>loading</div>
         return (
-            <div className="flex column" style={{ width: '100%' }}>
-                {/* <h1>statistics!</h1> */}
-                <div>
+            <div className="statistic-page flex column" style={{ width: '100%' }}>
+                {/* <div>
                     <h3>Market Price</h3>
-
                     <Sparklines data={marketPrice.values.map(value => value.y)}
                         margin={10}>
                         <SparklinesLine color="blue" style={{ strokeWidth: ".5", fill: "none" }} />
                     </Sparklines>
-
                 </div>
-                {/* {JSON.stringify(marketPrice.values)} */}
-
 
                 <div>
                     <h3>Confirm Transactions</h3>
-
                     <Sparklines data={confirmTransactions.values.map(value => value.y)}
                         margin={10}>
                         <SparklinesLine color="red" style={{ strokeWidth: ".5", }} />
                     </Sparklines>
+                </div> */}
 
-                </div>
+                {/* {JSON.stringify(marketPrice.values)} */}
                 {/* {JSON.stringify(confirmTransactions.values)} */}
-
-
 
                 < Line
                     // data={this.state.chartData}
                     data={{
                         // labels: ["January", "February", "March", "April", "May", "June", "July"],
-                        labels: this.state.marketPrice.values.map(value => new Date(value.x*1000).toLocaleDateString()),
+                        labels: this.state.marketPrice.values.map(value => new Date(value.x * 1000).toLocaleDateString()),
                         datasets: [{
-                            radius:2,
-                            hoverRadius:3,
-                            borderWidth:1,
+                            radius: 2,
+                            hoverRadius: 3,
+                            borderWidth: 1,
                             label: "Market Price",
-                            backgroundColor: 'rgb(255, 99, 132)',
-                            borderColor: 'rgb(255, 99, 132)',
+                            // backgroundColor: 'rgba(255, 99, 132,0.5)',
+                            // borderColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(71, 138, 189,0.5)',
+                            borderColor: 'rgb(71, 138, 189)',
                             // data: [0, 10, 5, 2, 20, 30, 45],
-                            // fill:true,
+                            fill:true,
                             data: this.state.marketPrice.values.map(value => value.y),
-                            }]
-                      }}
-                     
+                        }]
+                    }}
+
                     // options={chartOptions}
                     height={500}
                     width={700}
                 />
+                <div className="bottom-divider"></div>
 
                 < Line
                     // data={this.state.chartData}
                     data={{
                         // labels: ["January", "February", "March", "April", "May", "June", "July"],
-                        labels: this.state.confirmTransactions.values.map(value => new Date(value.x*1000).toLocaleDateString()),
+                        labels: this.state.confirmTransactions.values.map(value => new Date(value.x * 1000).toLocaleDateString()),
                         datasets: [{
-                            radius:2,
-                            hoverRadius:3,
-
-                            borderWidth:1,
+                            radius: 2,
+                            hoverRadius: 3,
+                            borderWidth: 1,
                             label: "Confirm Transactions",
-                            // backgroundColor: 'rgb(255, 99, 132)',
-                            backgroundColor: 'rgb(140, 102, 20)',
-                            // borderColor: 'rgb(255, 99, 132)',
-                            borderColor: '#F3931C',
-                            // data: [0, 10, 5, 2, 20, 30, 45],
-                            fill:true,
+                            backgroundColor: 'rgba(243,147,28,0.5)',
+                            borderColor: 'rgb(243,147,28)',
+                            fill: true,
                             data: this.state.confirmTransactions.values.map(value => value.y),
-                            
-                            }]
-                      }}
-                    // options={chartOptions}
-                    // height={400}
-                    // width={700}
+
+                        }]
+                    }}
+                // options={chartOptions}
+                // height={400}
+                // width={700}
                 />
             </div>
         )
