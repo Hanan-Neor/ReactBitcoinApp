@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ReactBitcoinApp/static/css/main.8859abd6.chunk.css",
-    "main.js": "/ReactBitcoinApp/static/js/main.c955bc13.chunk.js",
-    "main.js.map": "/ReactBitcoinApp/static/js/main.c955bc13.chunk.js.map",
-    "runtime-main.js": "/ReactBitcoinApp/static/js/runtime-main.96997377.js",
-    "runtime-main.js.map": "/ReactBitcoinApp/static/js/runtime-main.96997377.js.map",
-    "static/js/2.fcbdc03d.chunk.js": "/ReactBitcoinApp/static/js/2.fcbdc03d.chunk.js",
-    "static/js/2.fcbdc03d.chunk.js.map": "/ReactBitcoinApp/static/js/2.fcbdc03d.chunk.js.map",
-    "static/js/3.501c83ef.chunk.js": "/ReactBitcoinApp/static/js/3.501c83ef.chunk.js",
-    "static/js/3.501c83ef.chunk.js.map": "/ReactBitcoinApp/static/js/3.501c83ef.chunk.js.map",
+    "main.css": "/ReactBitcoinApp/static/css/main.952da673.chunk.css",
+    "main.js": "/ReactBitcoinApp/static/js/main.83889d83.chunk.js",
+    "main.js.map": "/ReactBitcoinApp/static/js/main.83889d83.chunk.js.map",
+    "runtime-main.js": "/ReactBitcoinApp/static/js/runtime-main.76b9c46f.js",
+    "runtime-main.js.map": "/ReactBitcoinApp/static/js/runtime-main.76b9c46f.js.map",
+    "static/js/2.51cd03ac.chunk.js": "/ReactBitcoinApp/static/js/2.51cd03ac.chunk.js",
+    "static/js/2.51cd03ac.chunk.js.map": "/ReactBitcoinApp/static/js/2.51cd03ac.chunk.js.map",
+    "static/js/3.d0a994cd.chunk.js": "/ReactBitcoinApp/static/js/3.d0a994cd.chunk.js",
+    "static/js/3.d0a994cd.chunk.js.map": "/ReactBitcoinApp/static/js/3.d0a994cd.chunk.js.map",
     "index.html": "/ReactBitcoinApp/index.html",
-    "static/css/main.8859abd6.chunk.css.map": "/ReactBitcoinApp/static/css/main.8859abd6.chunk.css.map",
-    "static/js/2.fcbdc03d.chunk.js.LICENSE.txt": "/ReactBitcoinApp/static/js/2.fcbdc03d.chunk.js.LICENSE.txt"
+    "static/css/main.952da673.chunk.css.map": "/ReactBitcoinApp/static/css/main.952da673.chunk.css.map",
+    "static/js/2.51cd03ac.chunk.js.LICENSE.txt": "/ReactBitcoinApp/static/js/2.51cd03ac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.96997377.js",
-    "static/js/2.fcbdc03d.chunk.js",
-    "static/css/main.8859abd6.chunk.css",
-    "static/js/main.c955bc13.chunk.js"
+    "static/js/runtime-main.76b9c46f.js",
+    "static/js/2.51cd03ac.chunk.js",
+    "static/css/main.952da673.chunk.css",
+    "static/js/main.83889d83.chunk.js"
   ]
 }
