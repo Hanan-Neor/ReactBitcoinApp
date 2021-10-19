@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { contactService } from '../services/contactService2'
 import { deleteContact } from '../store/actions/contactActions'
+import {updateContactInMoves} from '../store/actions/userActions'
 
 
 class _ContactEditPage extends Component {
@@ -22,6 +23,7 @@ class _ContactEditPage extends Component {
     }
     onSaveRobot = async () => {
         const { contact } = this.state
+        await this.props.updateContactInMoves(contact)
         await contactService.save(contact)
         this.props.history.push('/contact/' + contact._id)
     }
@@ -94,6 +96,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     deleteContact,
+    updateContactInMoves,
 }
 
 export const ContactEditPage = connect(mapStateToProps, mapDispatchToProps)(_ContactEditPage)

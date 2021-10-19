@@ -94,7 +94,8 @@ export class StatisticPage extends Component {
                     height={500}
                     width={700}
                 />
-                <div className="bottom-divider"></div>
+                {/* <div className="bottom-divider"></div> */}
+                <div className="" style={{marginBottom:'2rem'}}></div>
 
                 < Line
                     // data={this.state.chartData}

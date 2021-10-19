@@ -34,6 +34,7 @@ const _ContactDetailsPage = ({ match, loggedInUser, history, addMove }) => {
 
     const getMovesToContact = async () => {
         const userMoves = await loggedInUser.moves
+        console.log(userMoves);
         const movesToContact = userMoves.filter(move => { return move.toId === contact._id })
         setMoves(movesToContact)
     }
