@@ -81,7 +81,7 @@ export class StatisticPage extends Component {
                     // data={this.state.chartData}
                     data={{
                         // labels: ["January", "February", "March", "April", "May", "June", "July"],
-                        labels: this.state.marketPrice.values.map(value => new Date(value.x*1000).toLocaleString()),
+                        labels: this.state.marketPrice.values.map(value => new Date(value.x*1000).toLocaleDateString()),
                         datasets: [{
                             radius:2,
                             hoverRadius:3,
@@ -104,7 +104,7 @@ export class StatisticPage extends Component {
                     // data={this.state.chartData}
                     data={{
                         // labels: ["January", "February", "March", "April", "May", "June", "July"],
-                        labels: this.state.confirmTransactions.values.map(value => new Date(value.x*1000).toLocaleString()),
+                        labels: this.state.confirmTransactions.values.map(value => new Date(value.x*1000).toLocaleDateString()),
                         datasets: [{
                             radius:2,
                             hoverRadius:3,
