@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ReactBitcoinApp/static/css/main.952da673.chunk.css",
-    "main.js": "/ReactBitcoinApp/static/js/main.83889d83.chunk.js",
-    "main.js.map": "/ReactBitcoinApp/static/js/main.83889d83.chunk.js.map",
+    "main.js": "/ReactBitcoinApp/static/js/main.416b61d6.chunk.js",
+    "main.js.map": "/ReactBitcoinApp/static/js/main.416b61d6.chunk.js.map",
     "runtime-main.js": "/ReactBitcoinApp/static/js/runtime-main.76b9c46f.js",
     "runtime-main.js.map": "/ReactBitcoinApp/static/js/runtime-main.76b9c46f.js.map",
     "static/js/2.51cd03ac.chunk.js": "/ReactBitcoinApp/static/js/2.51cd03ac.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.76b9c46f.js",
     "static/js/2.51cd03ac.chunk.js",
     "static/css/main.952da673.chunk.css",
-    "static/js/main.83889d83.chunk.js"
+    "static/js/main.416b61d6.chunk.js"
   ]
 }
